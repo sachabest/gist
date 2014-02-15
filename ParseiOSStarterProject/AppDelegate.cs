@@ -17,7 +17,7 @@ namespace ParseiOSStarterProject
 	{
 		// class-level declarations
 		UIWindow window;
-		ParseiOSStarterProjectViewController viewController;
+		MainViewController viewController;
 
 		public AppDelegate ()
 		{
@@ -39,7 +39,7 @@ namespace ParseiOSStarterProject
 		{
 			window = new UIWindow (UIScreen.MainScreen.Bounds);
 			
-			viewController = new ParseiOSStarterProjectViewController ();
+			viewController = new MainViewController ();
 			window.RootViewController = viewController;
 			window.MakeKeyAndVisible ();
 			
