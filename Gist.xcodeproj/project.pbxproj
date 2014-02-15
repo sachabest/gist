@@ -14,14 +14,13 @@
 		1906CFA118AF015000A52A4E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1906CFA018AF015000A52A4E /* main.m */; };
 		1906CFA518AF015000A52A4E /* sbAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1906CFA418AF015000A52A4E /* sbAppDelegate.m */; };
 		1906CFA818AF015000A52A4E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1906CFA618AF015000A52A4E /* Main.storyboard */; };
-		1906CFAB18AF015000A52A4E /* sbMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1906CFAA18AF015000A52A4E /* sbMasterViewController.m */; };
-		1906CFAE18AF015000A52A4E /* sbDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1906CFAD18AF015000A52A4E /* sbDetailViewController.m */; };
 		1906CFB018AF015000A52A4E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1906CFAF18AF015000A52A4E /* Images.xcassets */; };
 		1906CFB718AF015000A52A4E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1906CFB618AF015000A52A4E /* XCTest.framework */; };
 		1906CFB818AF015000A52A4E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1906CF9418AF015000A52A4E /* Foundation.framework */; };
 		1906CFB918AF015000A52A4E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1906CF9818AF015000A52A4E /* UIKit.framework */; };
 		1906CFC118AF015000A52A4E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1906CFBF18AF015000A52A4E /* InfoPlist.strings */; };
 		1906CFC318AF015000A52A4E /* GistTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1906CFC218AF015000A52A4E /* GistTests.m */; };
+		197998AE18AF02E500BAB13B /* sbMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 197998AD18AF02E500BAB13B /* sbMainViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,16 +45,14 @@
 		1906CFA318AF015000A52A4E /* sbAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sbAppDelegate.h; sourceTree = "<group>"; };
 		1906CFA418AF015000A52A4E /* sbAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sbAppDelegate.m; sourceTree = "<group>"; };
 		1906CFA718AF015000A52A4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1906CFA918AF015000A52A4E /* sbMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sbMasterViewController.h; sourceTree = "<group>"; };
-		1906CFAA18AF015000A52A4E /* sbMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sbMasterViewController.m; sourceTree = "<group>"; };
-		1906CFAC18AF015000A52A4E /* sbDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sbDetailViewController.h; sourceTree = "<group>"; };
-		1906CFAD18AF015000A52A4E /* sbDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sbDetailViewController.m; sourceTree = "<group>"; };
 		1906CFAF18AF015000A52A4E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1906CFB518AF015000A52A4E /* GistTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GistTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1906CFB618AF015000A52A4E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1906CFBE18AF015000A52A4E /* GistTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GistTests-Info.plist"; sourceTree = "<group>"; };
 		1906CFC018AF015000A52A4E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1906CFC218AF015000A52A4E /* GistTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GistTests.m; sourceTree = "<group>"; };
+		197998AC18AF02E500BAB13B /* sbMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sbMainViewController.h; sourceTree = "<group>"; };
+		197998AD18AF02E500BAB13B /* sbMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sbMainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,10 +115,8 @@
 				1906CFA318AF015000A52A4E /* sbAppDelegate.h */,
 				1906CFA418AF015000A52A4E /* sbAppDelegate.m */,
 				1906CFA618AF015000A52A4E /* Main.storyboard */,
-				1906CFA918AF015000A52A4E /* sbMasterViewController.h */,
-				1906CFAA18AF015000A52A4E /* sbMasterViewController.m */,
-				1906CFAC18AF015000A52A4E /* sbDetailViewController.h */,
-				1906CFAD18AF015000A52A4E /* sbDetailViewController.m */,
+				197998AC18AF02E500BAB13B /* sbMainViewController.h */,
+				197998AD18AF02E500BAB13B /* sbMainViewController.m */,
 				1906CFAF18AF015000A52A4E /* Images.xcassets */,
 				1906CF9B18AF015000A52A4E /* Supporting Files */,
 			);
@@ -256,9 +251,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1906CFA118AF015000A52A4E /* main.m in Sources */,
+				197998AE18AF02E500BAB13B /* sbMainViewController.m in Sources */,
 				1906CFA518AF015000A52A4E /* sbAppDelegate.m in Sources */,
-				1906CFAE18AF015000A52A4E /* sbDetailViewController.m in Sources */,
-				1906CFAB18AF015000A52A4E /* sbMasterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +461,7 @@
 				1906CFC818AF015000A52A4E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1906CFC918AF015000A52A4E /* Build configuration list for PBXNativeTarget "GistTests" */ = {
 			isa = XCConfigurationList;
@@ -475,6 +470,7 @@
 				1906CFCB18AF015000A52A4E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
