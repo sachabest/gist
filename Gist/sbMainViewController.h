@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "sbAppDelegate.h"
+#import "sbTaskCell.h"
+#import <Parse/Parse.h>
 
-@interface sbMainViewController : UIViewController <UITableViewDelegate>
+@interface sbMainViewController : PFQueryTableViewController <UITableViewDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, UIAlertViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UITabBar *tabBar;
+@property (weak, nonatomic) sbAppDelegate *appDelegate;
 
 @end

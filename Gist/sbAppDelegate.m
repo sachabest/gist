@@ -16,7 +16,6 @@
     [Parse setApplicationId:@"iDAPKCcl35Edf2RIPBj2zN3ShBnXMapy8oQSPZWp"
                   clientKey:@"JwVs9V40Zsbit2zA25loHdM7DWc8tZ3GM049fSjk"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-    _parseData = [[GistParseStorage alloc] init];
     return YES;
 }
 							

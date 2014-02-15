@@ -16,19 +16,17 @@
     return self;
 }
 - (void)getParseFriends {
-    PFQuery *query = [PFQuery queryWithClassName:@"Friends"];
-    [query whereKey:@"user" equalTo:_user];
-    _outbox= [query findObjects];
+    _friends = [_user objectForKey:@"friends"];
 }
 - (void)getParseInbox {
     PFQuery *query = [PFQuery queryWithClassName:@"Inbox"];
-    [query whereKey:@"recipient" equalTo:_user];
-    _outbox= [query findObjects];
+    [query whereKey:@"confirmedAssignee" equalTo:_user];
+    _inbox = [query findObjects];
 }
 - (void)getParseOutbox {
-    PFQuery *query = [PFQuery queryWithClassName:@"SetnMessages"];
-    [query whereKey:@"sender" equalTo:_user];
-    _outbox= [query findObjects];
+    PFQuery *query = [PFQuery queryWithClassName:@"Inbox"];
+    [query whereKey:@"creator" equalTo:_user];
+    _outbox = [query findObjects];
 }
 
 #pragma mark Table View Methods
