@@ -21,6 +21,17 @@
 		1906CFC118AF015000A52A4E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1906CFBF18AF015000A52A4E /* InfoPlist.strings */; };
 		1906CFC318AF015000A52A4E /* GistTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1906CFC218AF015000A52A4E /* GistTests.m */; };
 		197998AE18AF02E500BAB13B /* sbMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 197998AD18AF02E500BAB13B /* sbMainViewController.m */; };
+		197998BF18AF042500BAB13B /* mylist.png in Resources */ = {isa = PBXBuildFile; fileRef = 197998B618AF042500BAB13B /* mylist.png */; };
+		197998C018AF042500BAB13B /* mylist.psd in Resources */ = {isa = PBXBuildFile; fileRef = 197998B718AF042500BAB13B /* mylist.psd */; };
+		197998C118AF042500BAB13B /* mylist100.png in Resources */ = {isa = PBXBuildFile; fileRef = 197998B818AF042500BAB13B /* mylist100.png */; };
+		197998C218AF042500BAB13B /* sent.png in Resources */ = {isa = PBXBuildFile; fileRef = 197998B918AF042500BAB13B /* sent.png */; };
+		197998C318AF042500BAB13B /* sent.psd in Resources */ = {isa = PBXBuildFile; fileRef = 197998BA18AF042500BAB13B /* sent.psd */; };
+		197998C418AF042500BAB13B /* sent100.png in Resources */ = {isa = PBXBuildFile; fileRef = 197998BB18AF042500BAB13B /* sent100.png */; };
+		197998C518AF042500BAB13B /* unread.png in Resources */ = {isa = PBXBuildFile; fileRef = 197998BC18AF042500BAB13B /* unread.png */; };
+		197998C618AF042500BAB13B /* unread.psd in Resources */ = {isa = PBXBuildFile; fileRef = 197998BD18AF042500BAB13B /* unread.psd */; };
+		197998C718AF042500BAB13B /* unread100.png in Resources */ = {isa = PBXBuildFile; fileRef = 197998BE18AF042500BAB13B /* unread100.png */; };
+		197998C918AF04F200BAB13B /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 197998C818AF04F200BAB13B /* Parse.framework */; };
+		197998D118AF0A6700BAB13B /* GistParseStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 197998D018AF0A6700BAB13B /* GistParseStorage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +64,18 @@
 		1906CFC218AF015000A52A4E /* GistTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GistTests.m; sourceTree = "<group>"; };
 		197998AC18AF02E500BAB13B /* sbMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sbMainViewController.h; sourceTree = "<group>"; };
 		197998AD18AF02E500BAB13B /* sbMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sbMainViewController.m; sourceTree = "<group>"; };
+		197998B618AF042500BAB13B /* mylist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mylist.png; sourceTree = "<group>"; };
+		197998B718AF042500BAB13B /* mylist.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = mylist.psd; sourceTree = "<group>"; };
+		197998B818AF042500BAB13B /* mylist100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mylist100.png; sourceTree = "<group>"; };
+		197998B918AF042500BAB13B /* sent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sent.png; sourceTree = "<group>"; };
+		197998BA18AF042500BAB13B /* sent.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = sent.psd; sourceTree = "<group>"; };
+		197998BB18AF042500BAB13B /* sent100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sent100.png; sourceTree = "<group>"; };
+		197998BC18AF042500BAB13B /* unread.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unread.png; sourceTree = "<group>"; };
+		197998BD18AF042500BAB13B /* unread.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = unread.psd; sourceTree = "<group>"; };
+		197998BE18AF042500BAB13B /* unread100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unread100.png; sourceTree = "<group>"; };
+		197998C818AF04F200BAB13B /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		197998CF18AF0A6700BAB13B /* GistParseStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GistParseStorage.h; sourceTree = "<group>"; };
+		197998D018AF0A6700BAB13B /* GistParseStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GistParseStorage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				197998C918AF04F200BAB13B /* Parse.framework in Frameworks */,
 				1906CF9718AF015000A52A4E /* CoreGraphics.framework in Frameworks */,
 				1906CF9918AF015000A52A4E /* UIKit.framework in Frameworks */,
 				1906CF9518AF015000A52A4E /* Foundation.framework in Frameworks */,
@@ -82,6 +106,7 @@
 		1906CF8818AF015000A52A4E = {
 			isa = PBXGroup;
 			children = (
+				197998B518AF042500BAB13B /* Images */,
 				1906CF9A18AF015000A52A4E /* Gist */,
 				1906CFBC18AF015000A52A4E /* GistTests */,
 				1906CF9318AF015000A52A4E /* Frameworks */,
@@ -101,6 +126,7 @@
 		1906CF9318AF015000A52A4E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				197998C818AF04F200BAB13B /* Parse.framework */,
 				1906CF9418AF015000A52A4E /* Foundation.framework */,
 				1906CF9618AF015000A52A4E /* CoreGraphics.framework */,
 				1906CF9818AF015000A52A4E /* UIKit.framework */,
@@ -112,11 +138,9 @@
 		1906CF9A18AF015000A52A4E /* Gist */ = {
 			isa = PBXGroup;
 			children = (
-				1906CFA318AF015000A52A4E /* sbAppDelegate.h */,
-				1906CFA418AF015000A52A4E /* sbAppDelegate.m */,
+				197998CE18AF09E600BAB13B /* Components */,
+				197998CD18AF09D600BAB13B /* Main View */,
 				1906CFA618AF015000A52A4E /* Main.storyboard */,
-				197998AC18AF02E500BAB13B /* sbMainViewController.h */,
-				197998AD18AF02E500BAB13B /* sbMainViewController.m */,
 				1906CFAF18AF015000A52A4E /* Images.xcassets */,
 				1906CF9B18AF015000A52A4E /* Supporting Files */,
 			);
@@ -150,6 +174,42 @@
 				1906CFBF18AF015000A52A4E /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		197998B518AF042500BAB13B /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				197998B618AF042500BAB13B /* mylist.png */,
+				197998B718AF042500BAB13B /* mylist.psd */,
+				197998B818AF042500BAB13B /* mylist100.png */,
+				197998B918AF042500BAB13B /* sent.png */,
+				197998BA18AF042500BAB13B /* sent.psd */,
+				197998BB18AF042500BAB13B /* sent100.png */,
+				197998BC18AF042500BAB13B /* unread.png */,
+				197998BD18AF042500BAB13B /* unread.psd */,
+				197998BE18AF042500BAB13B /* unread100.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		197998CD18AF09D600BAB13B /* Main View */ = {
+			isa = PBXGroup;
+			children = (
+				197998AC18AF02E500BAB13B /* sbMainViewController.h */,
+				197998AD18AF02E500BAB13B /* sbMainViewController.m */,
+			);
+			name = "Main View";
+			sourceTree = "<group>";
+		};
+		197998CE18AF09E600BAB13B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				197998CF18AF0A6700BAB13B /* GistParseStorage.h */,
+				197998D018AF0A6700BAB13B /* GistParseStorage.m */,
+				1906CFA318AF015000A52A4E /* sbAppDelegate.h */,
+				1906CFA418AF015000A52A4E /* sbAppDelegate.m */,
+			);
+			name = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,9 +289,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				197998C718AF042500BAB13B /* unread100.png in Resources */,
 				1906CFB018AF015000A52A4E /* Images.xcassets in Resources */,
+				197998C118AF042500BAB13B /* mylist100.png in Resources */,
 				1906CF9F18AF015000A52A4E /* InfoPlist.strings in Resources */,
 				1906CFA818AF015000A52A4E /* Main.storyboard in Resources */,
+				197998C218AF042500BAB13B /* sent.png in Resources */,
+				197998C618AF042500BAB13B /* unread.psd in Resources */,
+				197998C018AF042500BAB13B /* mylist.psd in Resources */,
+				197998C518AF042500BAB13B /* unread.png in Resources */,
+				197998BF18AF042500BAB13B /* mylist.png in Resources */,
+				197998C318AF042500BAB13B /* sent.psd in Resources */,
+				197998C418AF042500BAB13B /* sent100.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				197998D118AF0A6700BAB13B /* GistParseStorage.m in Sources */,
 				1906CFA118AF015000A52A4E /* main.m in Sources */,
 				197998AE18AF02E500BAB13B /* sbMainViewController.m in Sources */,
 				1906CFA518AF015000A52A4E /* sbAppDelegate.m in Sources */,
@@ -379,6 +449,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Volumes/sachabest/Documents/Gist,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Gist/Gist-Prefix.pch";
 				INFOPLIST_FILE = "Gist/Gist-Info.plist";
@@ -392,6 +466,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Volumes/sachabest/Documents/Gist,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Gist/Gist-Prefix.pch";
 				INFOPLIST_FILE = "Gist/Gist-Info.plist";

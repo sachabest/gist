@@ -44,9 +44,9 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <items>
-                                    <tabBarItem systemItem="favorites" id="mbO-7t-kfh"/>
-                                    <tabBarItem title="Item" id="RsY-t2-egE"/>
-                                    <tabBarItem systemItem="more" id="XGR-TM-ly4"/>
+                                    <tabBarItem title="Unread" image="Unread" id="mbO-7t-kfh"/>
+                                    <tabBarItem title="My List" image="MyList" id="RsY-t2-egE"/>
+                                    <tabBarItem title="Sent" image="Sent" id="XGR-TM-ly4"/>
                                 </items>
                             </tabBar>
                         </subviews>
@@ -63,6 +63,11 @@
             <point key="canvasLocation" x="410" y="64"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="MyList" width="100" height="41"/>
+        <image name="Sent" width="100" height="41"/>
+        <image name="Unread" width="100" height="41"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

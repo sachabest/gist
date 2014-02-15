@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GistParseStorage.h"
 
 @interface sbAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) GistParseStorage *parseData;
 
 @end

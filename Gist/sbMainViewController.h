@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "sbAppDelegate.h"
 
 @interface sbMainViewController : UIViewController <UITableViewDelegate>
 
