@@ -87,10 +87,14 @@
   <ItemGroup>
     <Folder Include="Resources\" />
     <Folder Include="lib\" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="lib\Parse.iOS.dll" />
+    <None Include="Images\mylist.psd" />
+    <None Include="Images\sent.psd" />
+    <None Include="Images\unread.psd" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
