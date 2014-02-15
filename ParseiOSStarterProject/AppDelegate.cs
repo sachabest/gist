@@ -21,9 +21,11 @@ namespace ParseiOSStarterProject
 
 		public AppDelegate ()
 		{
+			// this is a change
 			// Initialize the Parse client with your Application ID and .NET Key found on
 			// your Parse dashboard
-			ParseClient.Initialize("YOUR APPLICATION ID", "YOUR .NET KEY");
+			ParseClient.Initialize("iDAPKCcl35Edf2RIPBj2zN3ShBnXMapy8oQSPZWp",
+				"gbkBgqmKymSEWrccHQptP09PRy7GrSeF3prlXuG6");
 		}
 
 		//
