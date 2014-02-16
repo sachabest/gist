@@ -37,6 +37,7 @@
 		1983E48A18AFD00E006F5FB5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1983E48918AFD00E006F5FB5 /* SystemConfiguration.framework */; };
 		1983E48E18AFE210006F5FB5 /* sbCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1983E48D18AFE210006F5FB5 /* sbCreateViewController.m */; };
 		19C0598218B097AA00E8FAA8 /* sbOpenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C0598118B097AA00E8FAA8 /* sbOpenViewController.m */; };
+		19C0598418B0C52100E8FAA8 /* Color-02.png in Resources */ = {isa = PBXBuildFile; fileRef = 19C0598318B0C52100E8FAA8 /* Color-02.png */; };
 		8BB4DBF518B060AE0067DF3C /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BB4DBE718B060AE0067DF3C /* cancel.png */; };
 		8BB4DC0418B0614C0067DF3C /* login_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BB4DC0318B0614C0067DF3C /* login_bg.png */; };
 		8BB4DC0718B061570067DF3C /* login_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BB4DC0518B061570067DF3C /* login_button.png */; };
@@ -62,7 +63,6 @@
 		8BF1727918B093B8005211CC /* 60pt_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF1727318B093B8005211CC /* 60pt_logo.png */; };
 		8BF1727A18B093B8005211CC /* 80pt_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF1727418B093B8005211CC /* 80pt_logo.png */; };
 		8BF1727B18B093B8005211CC /* 120pt_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF1727518B093B8005211CC /* 120pt_logo.png */; };
-		8BF5F25A18B0C36100836F9D /* Color-02.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF5F25918B0C36100836F9D /* Color-02.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +117,7 @@
 		1983E48D18AFE210006F5FB5 /* sbCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = sbCreateViewController.m; path = ../../gist/Gist/sbCreateViewController.m; sourceTree = "<group>"; };
 		19C0598018B097AA00E8FAA8 /* sbOpenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sbOpenViewController.h; sourceTree = "<group>"; };
 		19C0598118B097AA00E8FAA8 /* sbOpenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sbOpenViewController.m; sourceTree = "<group>"; };
+		19C0598318B0C52100E8FAA8 /* Color-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Color-02.png"; sourceTree = "<group>"; };
 		8BB4DBE718B060AE0067DF3C /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cancel.png; path = Icons/cancel.png; sourceTree = "<group>"; };
 		8BB4DC0318B0614C0067DF3C /* login_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_bg.png; sourceTree = "<group>"; };
 		8BB4DC0518B061570067DF3C /* login_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_button.png; sourceTree = "<group>"; };
@@ -142,7 +143,6 @@
 		8BF1727318B093B8005211CC /* 60pt_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 60pt_logo.png; sourceTree = "<group>"; };
 		8BF1727418B093B8005211CC /* 80pt_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 80pt_logo.png; sourceTree = "<group>"; };
 		8BF1727518B093B8005211CC /* 120pt_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 120pt_logo.png; sourceTree = "<group>"; };
-		8BF5F25918B0C36100836F9D /* Color-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Color-02.png"; path = "../../Color-02.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,7 +266,7 @@
 		197998B518AF042500BAB13B /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				8BF5F25918B0C36100836F9D /* Color-02.png */,
+				19C0598318B0C52100E8FAA8 /* Color-02.png */,
 				8BF1727018B093B8005211CC /* 29pt_logo.png */,
 				8BF1727118B093B8005211CC /* 40pt_logo.png */,
 				8BF1727218B093B8005211CC /* 58pt_logo.png */,
@@ -422,7 +422,7 @@
 				8BF1727718B093B8005211CC /* 40pt_logo.png in Resources */,
 				8BB4DC1B18B06EE70067DF3C /* contacts.png in Resources */,
 				8BF1727618B093B8005211CC /* 29pt_logo.png in Resources */,
-				8BF5F25A18B0C36100836F9D /* Color-02.png in Resources */,
+				19C0598418B0C52100E8FAA8 /* Color-02.png in Resources */,
 				8BB4DC0718B061570067DF3C /* login_button.png in Resources */,
 				1906CFB018AF015000A52A4E /* Images.xcassets in Resources */,
 				8BB4DC1318B06ECA0067DF3C /* menu_small.png in Resources */,
