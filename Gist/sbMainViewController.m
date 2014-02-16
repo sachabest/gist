@@ -79,20 +79,35 @@
         _appDelegate.parseData = [[GistParseStorage alloc] init];
     }
     else {
-        PFLogInViewController *logInController = [[PFLogInViewController alloc] init];
-        logInController.fields = PFLogInFieldsUsernameAndPassword
+        _logIn = [[PFLogInViewController alloc] init];
+        _logIn.fields = PFLogInFieldsUsernameAndPassword
                                  | PFLogInFieldsFacebook
+                                 | PFLogInFieldsLogInButton
                                  | PFLogInFieldsSignUpButton;
-        logInController.facebookPermissions = @[@"friends_about_me"];
-        logInController.delegate = self;
-        UITextField *phone = [[UITextField alloc] init];
-        phone.placeholder = @"xxx-xxx-xxxx";
-        PFSignUpView *signUp = logInController.signUpController.view;
-        logInController.signUpController.view = [[PFSignUpView alloc] initWithFields:PFSignUpFieldsUsernameAndPassword | PFSignUpFieldsAdditional | PFSignUpFieldsSignUpButton];
-        [self presentModalViewController:logInController animated:YES];
+        _logIn.facebookPermissions = @[@"friends_about_me"];
+        _logIn.delegate = self;
+        PFSignUpViewController *signUp = [[PFSignUpViewController alloc] init];
+        signUp.delegate = self;
+        signUp.fields = PFSignUpFieldsUsernameAndPassword | PFSignUpFieldsAdditional | PFSignUpFieldsSignUpButton;
+        [_logIn setSignUpController:signUp];
+        ((PFSignUpView *)_logIn.signUpController.view).additionalField.placeholder = @"Phone";
+       // [((PFSignUpView *)_logIn.signUpController.view).signUpButton addTarget:self action:@selector(signUpViewController:shouldBeginSignUp:) forControlEvents:UIControlEventTouchUpInside];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                       initWithTarget:self
+                                       action:@selector(dismissKeyboard)];
+        tap.cancelsTouchesInView = NO;
+        [_logIn.signUpController.view addGestureRecognizer:tap];
+        [self presentModalViewController:_logIn animated:YES];
+
     }
 }
-
+-(void)dismissKeyboard {
+    if (_logIn) {
+        [((PFSignUpView *)_logIn.signUpController.view).additionalField resignFirstResponder];
+        [((PFSignUpView *)_logIn.signUpController.view).usernameField resignFirstResponder];
+        [((PFSignUpView *)_logIn.signUpController.view).passwordField resignFirstResponder];
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -113,6 +128,63 @@
                                  object[@"priority"]];
     
     return cell;
+}
+#pragma mark - Parse Login and Signup Delegate Methods
+
+// Sent to the delegate to determine whether the log in request should be submitted to the server.
+- (BOOL)logInViewController:(PFLogInViewController *)logInController shouldBeginLogInWithUsername:(NSString *)username password:(NSString *)password {
+    // Check if both fields are completed
+    if (username && password && username.length != 0 && password.length != 0) {
+        return YES; // Begin login process
+    }
+    
+    [[[UIAlertView alloc] initWithTitle:@"Missing Information"
+                                message:@"Make sure you fill out all of the information!"
+                               delegate:nil
+                      cancelButtonTitle:@"ok"
+                      otherButtonTitles:nil] show];
+    return NO; // Interrupt login process
+}
+// Sent to the delegate to determine whether the sign up request should be submitted to the server.
+- (BOOL)signUpViewController:(PFSignUpViewController *)signUpController shouldBeginSignUp:(NSDictionary *)info {
+    BOOL informationComplete = YES;
+    
+    // loop through all of the submitted data
+    for (id key in info) {
+        NSLog(@"%@", key);
+        NSString *field = [info objectForKey:key];
+        if (!field || field.length == 0) { // check completion
+            informationComplete = NO;
+            break;
+        }
+    }
+    if ([info objectForKey:@"additional"]) {
+        [info setValue:[FriendCell trimNumber:info[@"additional"]] forKey:@"additional"];
+    }
+    // Display an alert if a field wasn't completed
+    if (!informationComplete) {
+        [[[UIAlertView alloc] initWithTitle:@"Missing Information"
+                                    message:@"Make sure you fill out all of the information!"
+                                   delegate:nil
+                          cancelButtonTitle:@"ok"
+                          otherButtonTitles:nil] show];
+    }
+    
+    return informationComplete;
+}
+// Sent to the delegate when a PFUser is signed up.
+- (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
+    [self dismissModalViewControllerAnimated:YES]; // Dismiss the PFSignUpViewController
+}
+
+// Sent to the delegate when the sign up attempt fails.
+- (void)signUpViewController:(PFSignUpViewController *)signUpController didFailToSignUpWithError:(NSError *)error {
+    NSLog(@"Failed to sign up...");
+}
+
+// Sent to the delegate when the sign up screen is dismissed.
+- (void)signUpViewControllerDidCancelSignUp:(PFSignUpViewController *)signUpController {
+    NSLog(@"User dismissed the signUpViewController");
 }
 /*
  // Override to support conditional editing of the table view.

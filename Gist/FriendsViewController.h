@@ -12,10 +12,13 @@
 #import "FriendCell.h"
 #import "sbCreateViewController.h"
 
+@class sbCreateViewController;
+
 @interface FriendsViewController : UITableViewController
 
 @property NSMutableArray *friends;
 @property NSMutableArray *contactsWithPhone;
+@property sbCreateViewController *cvc;
 @property UIActivityIndicatorView *loading;
 
 @property NSArray *selection;

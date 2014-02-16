@@ -426,7 +426,8 @@
         [temp stringByAppendingString:assignee[@"firstName"]];
         [temp stringByAppendingString:@", "];
     }
-    temp = [temp substringToIndex:temp.length - 2];
+    if (temp.length > 2)
+        temp = [temp substringToIndex:temp.length - 2];
     assigneeCell.textLabel.text = temp;
 }
 - (IBAction)sendTask:(id)senders {
@@ -452,5 +453,11 @@
     }
     else
         _titleInput = textField.text;
+}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"contacts"]) {
+        FriendsViewController *fvc = segue.destinationViewController;
+        fvc.cvc = self;
+    }
 }
 @end
