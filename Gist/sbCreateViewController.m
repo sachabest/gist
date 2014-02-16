@@ -69,7 +69,7 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
-    
+    tap.cancelsTouchesInView = NO;
     [self.view addGestureRecognizer:tap];
     
     // if the local changes while in the background, we need to be notified so we can update the date
