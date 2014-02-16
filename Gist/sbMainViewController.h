@@ -19,6 +19,7 @@
 @property (weak, nonatomic) sbAppDelegate *appDelegate;
 @property PFObject *selectedTask;
 @property PFLogInViewController *logIn;
+@property (nonatomic, strong) NSDateFormatter *dateFormatter;
 
 @property UIColor *urgent;
 @property UIColor *today;
