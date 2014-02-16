@@ -26,7 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    _assignees = _task[@"possibleAssignees"];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -65,25 +65,42 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    if (!cell) {
-        switch (indexPath.section) {
-            case 0:
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"InfoCell"];
-            case 1:
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"CreatorCell"];
-            case 2:
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"AssigneeCell"];
-            case 3:
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"DeadlineCell"];
+    UITableViewCell *cell;
+    PFQuery *creatorName = [PFUser query];
+    [creatorName getObjectWithId:_task[@"creatorID"]];
+    switch (indexPath.section) {
+        case 0: {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"InfoCell"];
+            if (indexPath.row == 0)
+                cell.textLabel.text = _task[@"title"];
+            else
+                cell.textLabel.text = _task[@"info"];
+            break;
+        }
+        case 1: {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"CreatorCell"];
+            cell.textLabel.text = ((PFUser *)[creatorName getFirstObject])[@"publicUsername"];
+            break;
+        }
+        case 2: {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"AssigneeCell"];
+            PFUser *assignee = (PFUser *)_assignees[indexPath.row];
+            assignee = [assignee fetchIfNeeded];
+            cell.textLabel.text = assignee[@"publicUsername"];
+            break;
+        }
+        case 3: {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"DeadlineCell"];
+            break;
         }
     }
     // Configure the cell...
     
     return cell;
 }
-
+- (IBAction)goBack:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

@@ -226,10 +226,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="881" y="64"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Sb Open View Controller-->
         <scene sceneID="cbm-vH-d87">
             <objects>
-                <tableViewController id="5kD-WZ-rSW" sceneMemberID="viewController">
+                <tableViewController id="5kD-WZ-rSW" customClass="sbOpenViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="eeG-x2-oqd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -253,7 +253,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <barButtonItem key="leftBarButtonItem" image="Cancel" id="ZFc-c5-Unt">
                             <color key="tintColor" cyan="0.80000000000000004" magenta="0.20000000000000001" yellow="0.45000000000000001" black="0.050000000000000003" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                             <connections>
-                                <action selector="goBack:" destination="d5p-Cj-gvP" id="Ggz-vB-mhQ"/>
+                                <action selector="goBack:" destination="5kD-WZ-rSW" id="uuA-yf-Jnk"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

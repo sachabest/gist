@@ -8,6 +8,11 @@
 
 #import "sbMainViewController.h"
 
+@interface sbMainViewController() {
+    NSString *username;
+}
+
+@end
 @implementation sbMainViewController
 
 - (id)initWithCoder:(NSCoder *)aCoder {
@@ -158,6 +163,9 @@
             informationComplete = NO;
             break;
         }
+        if ([key isEqualToString:@"username"]) {
+            username = [info objectForKey:key];
+        }
     }
     if ([info objectForKey:@"additional"]) {
         [info setValue:[FriendCell trimNumber:info[@"additional"]] forKey:@"additional"];
@@ -175,6 +183,8 @@
 }
 // Sent to the delegate when a PFUser is signed up.
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
+    [PFUser currentUser][@"username"] = username;
+    [[PFUser currentUser] saveInBackground];
     [self dismissModalViewControllerAnimated:YES]; // Dismiss the PFSignUpViewController
 }
 

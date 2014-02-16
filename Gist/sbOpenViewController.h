@@ -12,4 +12,8 @@
 @interface sbOpenViewController : UITableViewController <UITableViewDelegate>
 
 @property PFObject *task;
+@property NSArray *assignees;
+
+- (IBAction)goBack:(id)sender;
+
 @end

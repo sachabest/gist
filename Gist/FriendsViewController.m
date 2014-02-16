@@ -230,10 +230,10 @@
     for (NSIndexPath *path in selected) {
         FriendCell *cell = (FriendCell *) [self.tableView cellForRowAtIndexPath:path];
         [search whereKey:@"additional" hasPrefix:cell.phoneNumber];
-        NSArray *results = [search findObjects];
-        if (results.count > 0) {
-            [cell setOnParse:results[0]];
-            [transposed addObject:results[0]];
+        PFUser *result = [search getFirstObject];
+        if (result) {
+            [cell setOnParse:result];
+            [transposed addObject:result];
         }
     }
     return transposed;

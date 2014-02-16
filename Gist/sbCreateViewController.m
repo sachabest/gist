@@ -8,8 +8,9 @@
 
 #import "sbCreateViewController.h"
 
-@interface sbCreateViewController ()
-
+@interface sbCreateViewController () {
+    PFObject *task;
+}
 @end
 
 @implementation sbCreateViewController
@@ -421,17 +422,17 @@
 - (void)setAssignessAndUpdate:(NSArray *)assignees {
     _assignees = assignees;
     UITableViewCell *assigneeCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]];
-    NSString *temp = [NSString stringWithFormat:@"%d", _assignees.count];
-    for (PFObject *assignee in _assignees) {
-        [temp stringByAppendingString:assignee[@"username"]];
-        [temp stringByAppendingString:@", "];
+    NSString *temp = [NSString stringWithFormat:@"%d ", _assignees.count];
+    for (PFUser *assignee in _assignees) {
+        temp = [temp stringByAppendingString:[assignee objectForKey:@"publicUsername"]];
+        temp = [temp stringByAppendingString:@", "];
     }
     if (temp.length > 2)
         temp = [temp substringToIndex:temp.length - 2];
     assigneeCell.textLabel.text = temp;
 }
 - (IBAction)sendTask:(id)senders {
-    PFObject *task = [[PFObject alloc] initWithClassName:@"Inbox"];
+    task = [[PFObject alloc] initWithClassName:@"Inbox"];
     task[@"creatorID"] = [PFUser currentUser].objectId;
     UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Incomplete Input" message:@"Please make sure to fill in all fields" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
     if (!_assignees || !_infoInput || !_titleInput) {
@@ -441,9 +442,6 @@
     task[@"possibleAssignees"] = _assignees;
     task[@"title"] = _titleInput;
     task[@"info"] = _infoInput;
-    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-    [currentInstallation addUniqueObject:task.objectId forKey:@"channels"];
-    [currentInstallation saveInBackground];
     [task saveInBackgroundWithTarget:self selector:@selector(callbackWithResult:error:)];
 }
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -459,6 +457,9 @@
         NSLog(@"%@", error);
     }
     else {
+        PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+        [currentInstallation addUniqueObject:task.objectId forKey:@"channels"];
+        [currentInstallation saveInBackground];
         UIAlertView *confirm = [[UIAlertView alloc] initWithTitle:@"Task Sent" message:@"Your task has been delivered!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [confirm show];
     }
