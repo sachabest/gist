@@ -98,6 +98,29 @@
     
     return cell;
 }
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString *sectionName;
+    switch (section)
+    {
+        case 0:
+            sectionName = @"Task Information";
+            break;
+        case 1:
+            sectionName = @"Creator";
+            break;
+        case 2:
+            sectionName = @"Assignees";
+            break;
+        case 3:
+            sectionName = @"Deadline";
+            break;
+        default:
+            sectionName = @"";
+            break;
+    }
+    return sectionName;
+}
 - (IBAction)goBack:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }

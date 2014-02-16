@@ -22,7 +22,7 @@
 {
     [super layoutSubviews];
     
-    self.imageView.frame = CGRectMake( 250, 5, 60, 60 );
+    self.imageView.frame = CGRectMake( 260, 15, 40, 40 );
     self.textLabel.frame = CGRectMake( 20, 0, 222, 44 );
     self.textLabel.font = [UIFont boldSystemFontOfSize:17];
     self.detailTextLabel.frame = CGRectMake( 20, 45, 80, 21 );
@@ -30,7 +30,7 @@
     
     // This rounds the image
     CALayer *imageLayer = self.imageView.layer;
-    [imageLayer setCornerRadius:5];
+    [imageLayer setCornerRadius:20];
     [imageLayer setBorderWidth:1];
     [imageLayer setMasksToBounds:YES];
 }
