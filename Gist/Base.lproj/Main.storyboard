@@ -282,7 +282,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Contacts" id="Vbs-AG-r0C">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Nft-z5-cpW"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Nft-z5-cpW">
+                            <connections>
+                                <action selector="send:" destination="d5p-Cj-gvP" id="W28-Pa-dxR"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="adE-q6-GGO" userLabel="First Responder" sceneMemberID="firstResponder"/>

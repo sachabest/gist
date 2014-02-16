@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "FriendsViewController.h"
 
 #define kPickerAnimationDuration    0.40   // duration for the animation to slide the date picker into view
 #define kDatePickerTag              99     // view tag identifiying the date picker view
@@ -51,4 +52,5 @@ static NSString *kAsigneeCell = @"assigneeCell";// the cell that holds assignees
 - (UITableViewCell *)createTextEntryCell;
 - (UITableViewCell *)create;
 - (void)setAssignessAndUpdate:(NSArray *)assignees;
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
 @end

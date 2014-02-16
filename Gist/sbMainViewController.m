@@ -79,20 +79,30 @@
         _appDelegate.parseData = [[GistParseStorage alloc] init];
     }
     else {
-        PFLogInViewController *logInController = [[PFLogInViewController alloc] init];
-        logInController.fields = PFLogInFieldsUsernameAndPassword
+        _logIn = [[PFLogInViewController alloc] init];
+        _logIn.fields = PFLogInFieldsUsernameAndPassword
                                  | PFLogInFieldsFacebook
                                  | PFLogInFieldsSignUpButton;
-        logInController.facebookPermissions = @[@"friends_about_me"];
-        logInController.delegate = self;
-        UITextField *phone = [[UITextField alloc] init];
-        phone.placeholder = @"xxx-xxx-xxxx";
-        PFSignUpView *signUp = logInController.signUpController.view;
-        logInController.signUpController.view = [[PFSignUpView alloc] initWithFields:PFSignUpFieldsUsernameAndPassword | PFSignUpFieldsAdditional | PFSignUpFieldsSignUpButton];
-        [self presentModalViewController:logInController animated:YES];
+        _logIn.facebookPermissions = @[@"friends_about_me"];
+        _logIn.delegate = self;
+        _logIn.signUpController.view = [[PFSignUpView alloc] initWithFields:PFSignUpFieldsUsernameAndPassword | PFSignUpFieldsAdditional | PFSignUpFieldsSignUpButton];
+        ((PFSignUpView *)_logIn.signUpController.view).additionalField.placeholder = @"Phone";
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                       initWithTarget:self
+                                       action:@selector(dismissKeyboard)];
+        tap.cancelsTouchesInView = NO;
+        [_logIn.signUpController.view addGestureRecognizer:tap];
+        [self presentModalViewController:_logIn animated:YES];
+
     }
 }
-
+-(void)dismissKeyboard {
+    if (_logIn) {
+        [((PFSignUpView *)_logIn.signUpController.view).additionalField resignFirstResponder];
+        [((PFSignUpView *)_logIn.signUpController.view).usernameField resignFirstResponder];
+        [((PFSignUpView *)_logIn.signUpController.view).passwordField resignFirstResponder];
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

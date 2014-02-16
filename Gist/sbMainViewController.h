@@ -11,10 +11,11 @@
 #import "sbTaskCell.h"
 #import <Parse/Parse.h>
 
-@interface sbMainViewController : PFQueryTableViewController <UITableViewDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, UIAlertViewDelegate>
+@interface sbMainViewController : PFQueryTableViewController <UITableViewDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, UITextFieldDelegate, UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITabBar *tabBar;
 @property (weak, nonatomic) sbAppDelegate *appDelegate;
+@property PFLogInViewController *logIn;
 
 
 

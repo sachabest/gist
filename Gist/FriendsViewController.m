@@ -227,7 +227,7 @@
 }
 - (IBAction)send:(id)sender {
     _selection = [self sendSelection];
-    ((sbCreateViewController *)self.parentViewController).assignees = _selection;
+    [_cvc setAssignessAndUpdate:_selection];
 }
 - (NSMutableArray *)sendSelection {
     NSArray *selected = [self.tableView indexPathsForSelectedRows];
