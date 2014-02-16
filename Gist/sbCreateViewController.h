@@ -27,7 +27,7 @@ static NSString *kTitleCell = @"titleCell";     // the titleCell
 static NSString *kInfoCell = @"infoCell";       // the cell that describes more about the title
 static NSString *kAsigneeCell = @"assigneeCell";// the cell that holds assignees
 
-@interface sbCreateViewController : UITableViewController <UITableViewDelegate>
+@interface sbCreateViewController : UITableViewController <UITableViewDelegate, UITextFieldDelegate>
 
 @property (nonatomic, strong) NSArray *dataArray;
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
@@ -37,7 +37,8 @@ static NSString *kAsigneeCell = @"assigneeCell";// the cell that holds assignees
 
 @property (assign) NSInteger pickerCellRowHeight;
 @property (nonatomic, strong) IBOutlet UIButton *doneButton;
-@property (nonatomic, strong) IBOutlet UIDatePicker *pickerView;
+@property (nonatomic, strong) IBOutlet UINavigationItem *nav;
+@property (nonatomic, strong) UIDatePicker *pickerView;
 
 
 - (UITableViewCell *)createTextEntryCell;

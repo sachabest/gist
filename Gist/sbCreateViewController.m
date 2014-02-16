@@ -64,10 +64,7 @@
     self.dateFormatter = [[NSDateFormatter alloc] init];
     [self.dateFormatter setDateStyle:NSDateFormatterShortStyle];    // show short-style date format
     [self.dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-    
-    // obtain the picker view cell's height, works because the cell was pre-defined in our storyboard
-    UITableViewCell *pickerViewCellToCheck = [self.tableView dequeueReusableCellWithIdentifier:kDatePickerID];
-    self.pickerCellRowHeight = pickerViewCellToCheck.frame.size.height;
+    self.pickerCellRowHeight = 162;
     
     // if the local changes while in the background, we need to be notified so we can update the date
     // format in the table view cells
@@ -110,7 +107,7 @@
     targetedRow++;
     
     UITableViewCell *checkDatePickerCell =
-    [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:targetedRow inSection:0]];
+    [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:targetedRow inSection:1]];
     UIDatePicker *checkDatePicker = (UIDatePicker *)[checkDatePickerCell viewWithTag:kDatePickerTag];
     
     hasDatePicker = (checkDatePicker != nil);
@@ -149,7 +146,7 @@
  */
 - (BOOL)indexPathHasPicker:(NSIndexPath *)indexPath
 {
-    return ([self hasInlineDatePicker] && self.datePickerIndexPath.row == indexPath.row);
+    return _datePickerIndexPath.section == indexPath.section && _datePickerIndexPath.row == indexPath.row;
 }
 
 /*! Determines if the given indexPath points to a cell that contains the start/end dates.
@@ -174,7 +171,10 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return ([self indexPathHasPicker:indexPath] ? self.pickerCellRowHeight : self.tableView.rowHeight);
+    if (indexPath.row == 1 && indexPath.section == 1)
+        return 180;
+    else
+        return 44;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -193,6 +193,8 @@
                 cellID = kDateCellID;
             } else {
                 cellID = kDatePickerID;
+                
+                _datePickerIndexPath = indexPath;
             }
             break;
         case 2:
@@ -205,20 +207,33 @@
             case 0:
                 if (indexPath.row == 0) {
                     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kTitleCell];
+                    UITextField *input = [[UITextField alloc] initWithFrame:cell.frame];
+                    input.delegate = self;
+                    input.placeholder = @"Task title";
+                    [cell addSubview:input];
                 } else {
                     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kInfoCell];
+                    UITextField *input = [[UITextField alloc] initWithFrame:cell.frame];
+                    input.delegate = self;
+                    input.placeholder = @"Brief description of the tasK";
+                    [cell addSubview:input];
                 }
                 break;
             case 1:
                 if (indexPath.row == 0) {
                     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kDateCellID];
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                    cell.textLabel.text = [self.dateFormatter stringFromDate:[NSDate date]];
                 } else {
                     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kDatePickerID];
+                    _pickerView = [[UIDatePicker alloc] initWithFrame:cell.frame];
+                    [cell addSubview:_pickerView];
                 }
                 break;
             case 2:
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kAsigneeCell];
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:kAsigneeCell];
+                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                cell.textLabel.text = @"Assignees";
                 break;
         }
     }
@@ -226,7 +241,7 @@
     // then we have one more cell than the model allows
     //
     NSInteger modelRow = indexPath.row;
-    if (self.datePickerIndexPath != nil && self.datePickerIndexPath.row < indexPath.row)
+    if (self.datePickerIndexPath != nil && self.datePickerIndexPath.section == indexPath.section  && self.datePickerIndexPath.row < indexPath.row)
     {
         modelRow--;
     }
@@ -284,7 +299,7 @@
     // remove any date picker cell if it exists
     if ([self hasInlineDatePicker])
     {
-        [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.datePickerIndexPath.row inSection:0]]
+        [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.datePickerIndexPath.row inSection:1]]
                               withRowAnimation:UITableViewRowAnimationFade];
         self.datePickerIndexPath = nil;
     }
@@ -293,10 +308,10 @@
     {
         // hide the old date picker and display the new one
         NSInteger rowToReveal = (before ? indexPath.row - 1 : indexPath.row);
-        NSIndexPath *indexPathToReveal = [NSIndexPath indexPathForRow:rowToReveal inSection:0];
+        NSIndexPath *indexPathToReveal = [NSIndexPath indexPathForRow:rowToReveal inSection:1];
         
         [self toggleDatePickerForSelectedIndexPath:indexPathToReveal];
-        self.datePickerIndexPath = [NSIndexPath indexPathForRow:indexPathToReveal.row + 1 inSection:0];
+        self.datePickerIndexPath = [NSIndexPath indexPathForRow:indexPathToReveal.row + 1 inSection:1];
     }
     
     // always deselect the row containing the start or end date
@@ -349,14 +364,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    if (cell.reuseIdentifier == kDateCellID)
-    {
-        [self displayInlineDatePickerForRowAtIndexPath:indexPath];
-    }
-    else
-    {
+    if (cell.reuseIdentifier != kAsigneeCell)
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    }
+    else
+        [self performSegueWithIdentifier:@"contacts" sender:self];
 }
 
 

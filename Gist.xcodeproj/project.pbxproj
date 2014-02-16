@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19008E6A18B0275100050939 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19008E6918B0275100050939 /* FriendsViewController.m */; };
+		19008E6D18B028AC00050939 /* FriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19008E6C18B028AC00050939 /* FriendCell.m */; };
 		1906CF9518AF015000A52A4E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1906CF9418AF015000A52A4E /* Foundation.framework */; };
 		1906CF9718AF015000A52A4E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1906CF9618AF015000A52A4E /* CoreGraphics.framework */; };
 		1906CF9918AF015000A52A4E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1906CF9818AF015000A52A4E /* UIKit.framework */; };
@@ -56,6 +58,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		19008E6818B0275100050939 /* FriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
+		19008E6918B0275100050939 /* FriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsViewController.m; sourceTree = "<group>"; };
+		19008E6B18B028AC00050939 /* FriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendCell.h; sourceTree = "<group>"; };
+		19008E6C18B028AC00050939 /* FriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendCell.m; sourceTree = "<group>"; };
 		1906CF9118AF015000A52A4E /* Gist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1906CF9418AF015000A52A4E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1906CF9618AF015000A52A4E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -262,6 +268,10 @@
 			children = (
 				1983E48C18AFE210006F5FB5 /* sbCreateViewController.h */,
 				1983E48D18AFE210006F5FB5 /* sbCreateViewController.m */,
+				19008E6818B0275100050939 /* FriendsViewController.h */,
+				19008E6918B0275100050939 /* FriendsViewController.m */,
+				19008E6B18B028AC00050939 /* FriendCell.h */,
+				19008E6C18B028AC00050939 /* FriendCell.m */,
 			);
 			name = "Create View";
 			sourceTree = "<group>";
@@ -375,10 +385,12 @@
 			files = (
 				197998D118AF0A6700BAB13B /* GistParseStorage.m in Sources */,
 				1906CFA118AF015000A52A4E /* main.m in Sources */,
+				19008E6A18B0275100050939 /* FriendsViewController.m in Sources */,
 				197998AE18AF02E500BAB13B /* sbMainViewController.m in Sources */,
 				1983E48E18AFE210006F5FB5 /* sbCreateViewController.m in Sources */,
 				1983E47818AFCC36006F5FB5 /* sbTaskCell.m in Sources */,
 				1906CFA518AF015000A52A4E /* sbAppDelegate.m in Sources */,
+				19008E6D18B028AC00050939 /* FriendCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
