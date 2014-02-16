@@ -46,9 +46,9 @@ static NSString *kAsigneeCell = @"assigneeCell";// the cell that holds assignees
 @property (nonatomic, strong) UIDatePicker *pickerView;
 @property NSArray *assignees;
 
-
-- (IBAction)sendTask:(id)senders;
-- (IBAction)showConfirm:(id)sender;
+- (IBAction)goBack:(id)sender;
+- (IBAction)sendTask:(id)sender;
+- (void)callbackWithResult:(NSNumber *)result error:(NSError *)error;
 - (UITableViewCell *)createTextEntryCell;
 - (UITableViewCell *)create;
 - (void)setAssignessAndUpdate:(NSArray *)assignees;

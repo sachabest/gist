@@ -225,19 +225,16 @@
 }
 - (NSMutableArray *)sendSelection {
     NSArray *selected = [self.tableView indexPathsForSelectedRows];
-    PFQuery *search = [[PFQuery alloc] initWithClassName:@"User"];
+    PFQuery *search = [PFUser query];
+    NSMutableArray *transposed = [[NSMutableArray alloc] init];
     for (NSIndexPath *path in selected) {
         FriendCell *cell = (FriendCell *) [self.tableView cellForRowAtIndexPath:path];
-        [search whereKey:@"additional" equalTo:cell.phoneNumber];
+        [search whereKey:@"additional" hasPrefix:cell.phoneNumber];
         NSArray *results = [search findObjects];
         if (results.count > 0) {
             [cell setOnParse:results[0]];
+            [transposed addObject:results[0]];
         }
-    }
-    NSMutableArray *transposed = [[NSMutableArray alloc] init];
-    for (NSIndexPath *path in selected) {
-        NSDictionary *temp =  [_contactsWithPhone objectAtIndex:path.row];
-        
     }
     return transposed;
 }

@@ -423,7 +423,7 @@
     UITableViewCell *assigneeCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]];
     NSString *temp = [NSString stringWithFormat:@"%d", _assignees.count];
     for (PFObject *assignee in _assignees) {
-        [temp stringByAppendingString:assignee[@"firstName"]];
+        [temp stringByAppendingString:assignee[@"username"]];
         [temp stringByAppendingString:@", "];
     }
     if (temp.length > 2)
@@ -432,7 +432,7 @@
 }
 - (IBAction)sendTask:(id)senders {
     PFObject *task = [[PFObject alloc] initWithClassName:@"Inbox"];
-    task[@"creator"] = [PFUser currentUser];
+    task[@"creatorID"] = [PFUser currentUser].objectId;
     UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Incomplete Input" message:@"Please make sure to fill in all fields" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
     if (!_assignees || !_infoInput || !_titleInput) {
         [error show];
@@ -441,11 +441,23 @@
     task[@"possibleAssignees"] = _assignees;
     task[@"title"] = _titleInput;
     task[@"info"] = _infoInput;
-    [task saveInBackgroundWithTarget:self selector:@selector(showConfirm:)];
+    [task saveInBackgroundWithTarget:self selector:@selector(callbackWithResult:error:)];
 }
--(IBAction)showConfirm:(id)sender {
-    UIAlertView *confirm = [[UIAlertView alloc] initWithTitle:@"Task Sent" message:@"Your task has been delivered!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [confirm show];
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if ([alertView.title isEqualToString:@"Task Sent"])
+        [self goBack:];
+}
+- (IBAction)goBack:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+-(void)callbackWithResult:(NSNumber *)result error:(NSError *)error {
+    if (error) {
+        NSLog(@"%@", error);
+    }
+    else {
+        UIAlertView *confirm = [[UIAlertView alloc] initWithTitle:@"Task Sent" message:@"Your task has been delivered!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [confirm show];
+    }
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     if ([[textField placeholder] rangeOfString:@"title"].location == NSNotFound) {

@@ -201,7 +201,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <barButtonItem key="leftBarButtonItem" image="Cancel" id="T0C-QN-Ndt">
                             <color key="tintColor" cyan="0.80000000000000004" magenta="0.20000000000000001" yellow="0.45000000000000001" black="0.050000000000000003" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                             <connections>
-                                <action selector="sendTask:" destination="WUs-cU-zwA" id="LJy-P1-QIF"/>
+                                <action selector="goBack:" destination="WUs-cU-zwA" id="SCD-yd-3c3"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Send" id="CG3-RY-G4U">
