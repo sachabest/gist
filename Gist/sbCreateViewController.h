@@ -44,7 +44,7 @@ static NSString *kAsigneeCell = @"assigneeCell";// the cell that holds assignees
 @property NSArray *assignees;
 
 
-- (void)sendTask;
+- (IBAction)sendTask:(id)senders;
 - (IBAction)showConfirm:(id)sender;
 - (UITableViewCell *)createTextEntryCell;
 - (UITableViewCell *)create;

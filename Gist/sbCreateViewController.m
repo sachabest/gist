@@ -207,13 +207,15 @@
             case 0:
                 if (indexPath.row == 0) {
                     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kTitleCell];
-                    UITextField *input = [[UITextField alloc] initWithFrame:cell.frame];
-                    input.delegate = self;
-                    input.placeholder = @"Task title";
-                    [cell addSubview:input];
+                    CGRect rect = CGRectMake(20, 7, 280, 30);
+                    UITextField *title = [[UITextField alloc] initWithFrame:rect];
+                    title.delegate = self;
+                    title.placeholder = @"Task title";
+                    [cell addSubview:title];
                 } else {
                     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kInfoCell];
-                    UITextField *input = [[UITextField alloc] initWithFrame:cell.frame];
+                    CGRect rect = CGRectMake(20, 7, 280, 30);
+                    UITextField *input = [[UITextField alloc] initWithFrame:rect];
                     input.delegate = self;
                     input.placeholder = @"Brief description of the tasK";
                     [cell addSubview:input];
@@ -414,20 +416,28 @@
     temp = [temp substringToIndex:temp.length - 2];
     assigneeCell.textLabel.text = temp;
 }
-- (void)sendTask {
+- (IBAction)sendTask:(id)senders {
     PFObject *task = [[PFObject alloc] initWithClassName:@"Inbox"];
     task[@"creator"] = [PFUser currentUser];
-    UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"IncompleteInput" message:@"Please make sure to fill in all fields" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    if (!_assignees || _title) {
+    UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Incomplete Input" message:@"Please make sure to fill in all fields" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    if (!_assignees || !_infoInput || !_titleInput) {
         [error show];
+        return;
     }
     task[@"possibleAssignees"] = _assignees;
     task[@"title"] = _titleInput;
     task[@"info"] = _infoInput;
-    [task saveInBackgroundWithTarget:self selector:@selector(showConfirm)];
+    [task saveInBackgroundWithTarget:self selector:@selector(showConfirm:)];
 }
 -(IBAction)showConfirm:(id)sender {
     UIAlertView *confirm = [[UIAlertView alloc] initWithTitle:@"Task Sent" message:@"Your task has been delivered!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [confirm show];
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    if ([[textField placeholder] rangeOfString:@"title"].location == NSNotFound) {
+        _infoInput = textField.text;
+    }
+    else
+        _titleInput = textField.text;
 }
 @end

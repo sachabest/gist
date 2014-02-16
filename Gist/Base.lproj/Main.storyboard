@@ -241,7 +241,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Create Task" id="MpN-ux-oXS">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="g0A-9w-BOy"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="g0A-9w-BOy">
+                            <connections>
+                                <action selector="sendTask:" destination="WUs-cU-zwA" id="sZG-ip-OEI"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
