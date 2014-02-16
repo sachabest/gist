@@ -441,11 +441,15 @@
     task[@"possibleAssignees"] = _assignees;
     task[@"title"] = _titleInput;
     task[@"info"] = _infoInput;
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation addUniqueObject:task.objectId forKey:@"channels"];
+    [currentInstallation saveInBackground];
     [task saveInBackgroundWithTarget:self selector:@selector(callbackWithResult:error:)];
 }
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if ([alertView.title isEqualToString:@"Task Sent"])
-        [self goBack:];
+    if ([alertView.title isEqualToString:@"Task Sent"]) {
+        [self goBack:self];
+    }
 }
 - (IBAction)goBack:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
