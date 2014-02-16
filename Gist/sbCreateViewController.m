@@ -66,6 +66,12 @@
     [self.dateFormatter setTimeStyle:NSDateFormatterNoStyle];
     self.pickerCellRowHeight = 162;
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self
+                                   action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
+    
     // if the local changes while in the background, we need to be notified so we can update the date
     // format in the table view cells
     //
@@ -82,7 +88,12 @@
                                                   object:nil];
 }
 
-
+-(void)dismissKeyboard {
+    if (_infoField)
+        [_infoField resignFirstResponder];
+    if (_titleField)
+        [_titleField resignFirstResponder];
+}
 #pragma mark - Locale
 
 /*! Responds to region format or locale changes.
@@ -212,6 +223,7 @@
                     title.delegate = self;
                     title.placeholder = @"Task title";
                     [cell addSubview:title];
+                    _titleField = title;
                 } else {
                     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kInfoCell];
                     CGRect rect = CGRectMake(20, 7, 280, 30);
@@ -219,6 +231,7 @@
                     input.delegate = self;
                     input.placeholder = @"Brief description of the tasK";
                     [cell addSubview:input];
+                    _infoField = input;
                 }
                 break;
             case 1:

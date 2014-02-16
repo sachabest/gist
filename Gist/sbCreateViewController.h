@@ -38,6 +38,8 @@ static NSString *kAsigneeCell = @"assigneeCell";// the cell that holds assignees
 @property NSString *titleInput;
 @property NSString *infoInput;
 
+@property UITextField *titleField;
+@property UITextField *infoField;
 @property (assign) NSInteger pickerCellRowHeight;
 @property (nonatomic, strong) IBOutlet UINavigationItem *nav;
 @property (nonatomic, strong) UIDatePicker *pickerView;
