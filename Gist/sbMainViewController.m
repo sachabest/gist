@@ -136,30 +136,6 @@
     
     // Configure the cell to show todo item with a priority at the bottom
     [cell addTask:object];
-    int time = [((NSDate *) object[@"deadline"]) timeIntervalSinceNow];
-    int hours = time / 60 / 60;
-    cell.contentView.backgroundColor = _later;
-    cell.backgroundColor = _later;
-    if (hours < 336) {
-        cell.backgroundColor = _nextWeek;
-        cell.contentView.backgroundColor = _nextWeek;
-    }
-    if (hours < 168) {
-        cell.backgroundColor = _thisWeek;
-        cell.contentView.backgroundColor = _thisWeek;
-    }
-    if (hours < 48) {
-        cell.backgroundColor = _tomorrow;
-        cell.contentView.backgroundColor = _tomorrow;
-    }
-    if (hours < 24) {
-        cell.backgroundColor = _today;
-        cell.contentView.backgroundColor = _today;
-    }
-    if (hours < 2) {
-        cell.backgroundColor = _urgent;
-        cell.contentView.backgroundColor = _urgent;
-    }
     cell.textLabel.text = object[@"title"];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Priority: %@",
                                  object[@"priority"]];
@@ -268,6 +244,30 @@
  return YES;
  }
  */
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    sbTaskCell *casted = (sbTaskCell *)cell;
+    int time = [((NSDate *) casted.task[@"deadline"]) timeIntervalSinceNow];
+    int hours = time / 60 / 60;
+    UIView *backgroundView = [[UIView alloc] init];
+    backgroundView.backgroundColor = _later;
+    if (hours < 336) {
+        backgroundView.backgroundColor = _nextWeek;
+    }
+    if (hours < 168) {
+        backgroundView.backgroundColor = _thisWeek;
+    }
+    if (hours < 48) {
+        backgroundView.backgroundColor = _tomorrow;
+    }
+    if (hours < 24) {
+        backgroundView.backgroundColor = _today;
+    }
+    if (hours < 2) {
+        backgroundView.backgroundColor = _urgent;
+    }
+    backgroundView.opaque = YES;
+    [cell setBackgroundView:backgroundView];
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     sbTaskCell *selected = (sbTaskCell *) [self.tableView cellForRowAtIndexPath:indexPath];
