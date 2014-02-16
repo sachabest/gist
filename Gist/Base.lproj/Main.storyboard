@@ -247,23 +247,18 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Contacts" id="Vbs-AG-r0C">
-<<<<<<< HEAD
                         <barButtonItem key="leftBarButtonItem" image="Cancel" id="g0A-9w-BOy">
                             <color key="tintColor" cyan="0.80000000000000004" magenta="0.20000000000000001" yellow="0.45000000000000001" black="0.050000000000000003" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                             <connections>
-                                <action selector="sendTask:" destination="WUs-cU-zwA" id="sZG-ip-OEI"/>
+                                <action selector="goBack:" destination="d5p-Cj-gvP" id="Hll-ct-gpr"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="Nft-z5-cpW">
                             <color key="tintColor" cyan="0.80000000000000004" magenta="0.20000000000000001" yellow="0.45000000000000001" black="0.050000000000000003" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
-                        </barButtonItem>
-=======
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Nft-z5-cpW">
                             <connections>
-                                <action selector="send:" destination="d5p-Cj-gvP" id="W28-Pa-dxR"/>
+                                <action selector="send:" destination="d5p-Cj-gvP" id="fdi-t4-Zpi"/>
                             </connections>
                         </barButtonItem>
->>>>>>> 66b155dc99aef10019428bd952868490bf4052ae
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="adE-q6-GGO" userLabel="First Responder" sceneMemberID="firstResponder"/>

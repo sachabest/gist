@@ -25,5 +25,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (IBAction)send:(id)sender;
+- (IBAction)goBack:(id)sender;
 
 @end
