@@ -123,6 +123,7 @@
                                       reuseIdentifier:cellIdentifier];
     }
     // Configure the cell to show todo item with a priority at the bottom
+    cell.task = object;
     cell.textLabel.text = object[@"name"];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Priority: %@",
                                  object[@"priority"]];
@@ -225,16 +226,22 @@
  }
  */
 
-/*
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    sbTaskCell *selected = (sbTaskCell *) [self.tableView cellForRowAtIndexPath:indexPath];
+    _selectedTask = selected.task;
+    [self performSegueWithIdentifier:@"open" sender:self];
+}
  #pragma mark - Navigation
  
  // In a story board-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
  {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
+     if ([segue.identifier isEqualToString:@"open"]) {
+         sbOpenViewController *ovc = (sbOpenViewController *) segue.destinationViewController;
+         ovc.task = _selectedTask;
+     }
  }
  
- */
+
 
 @end

@@ -36,6 +36,7 @@
 		1983E48818AFD007006F5FB5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1983E48718AFD007006F5FB5 /* StoreKit.framework */; };
 		1983E48A18AFD00E006F5FB5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1983E48918AFD00E006F5FB5 /* SystemConfiguration.framework */; };
 		1983E48E18AFE210006F5FB5 /* sbCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1983E48D18AFE210006F5FB5 /* sbCreateViewController.m */; };
+		19C0598218B097AA00E8FAA8 /* sbOpenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19C0598118B097AA00E8FAA8 /* sbOpenViewController.m */; };
 		8BB4DBF518B060AE0067DF3C /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BB4DBE718B060AE0067DF3C /* cancel.png */; };
 		8BB4DC0418B0614C0067DF3C /* login_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BB4DC0318B0614C0067DF3C /* login_bg.png */; };
 		8BB4DC0718B061570067DF3C /* login_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BB4DC0518B061570067DF3C /* login_button.png */; };
@@ -113,6 +114,8 @@
 		1983E48918AFD00E006F5FB5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		1983E48C18AFE210006F5FB5 /* sbCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sbCreateViewController.h; path = ../../gist/Gist/sbCreateViewController.h; sourceTree = "<group>"; };
 		1983E48D18AFE210006F5FB5 /* sbCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = sbCreateViewController.m; path = ../../gist/Gist/sbCreateViewController.m; sourceTree = "<group>"; };
+		19C0598018B097AA00E8FAA8 /* sbOpenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sbOpenViewController.h; sourceTree = "<group>"; };
+		19C0598118B097AA00E8FAA8 /* sbOpenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sbOpenViewController.m; sourceTree = "<group>"; };
 		8BB4DBE718B060AE0067DF3C /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cancel.png; path = Icons/cancel.png; sourceTree = "<group>"; };
 		8BB4DC0318B0614C0067DF3C /* login_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_bg.png; sourceTree = "<group>"; };
 		8BB4DC0518B061570067DF3C /* login_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_button.png; sourceTree = "<group>"; };
@@ -218,6 +221,7 @@
 		1906CF9A18AF015000A52A4E /* Gist */ = {
 			isa = PBXGroup;
 			children = (
+				19C0597F18B0978B00E8FAA8 /* Open View */,
 				1983E48B18AFE1FA006F5FB5 /* Create View */,
 				197998CE18AF09E600BAB13B /* Components */,
 				197998CD18AF09D600BAB13B /* Main View */,
@@ -322,6 +326,15 @@
 				19008E6C18B028AC00050939 /* FriendCell.m */,
 			);
 			name = "Create View";
+			sourceTree = "<group>";
+		};
+		19C0597F18B0978B00E8FAA8 /* Open View */ = {
+			isa = PBXGroup;
+			children = (
+				19C0598018B097AA00E8FAA8 /* sbOpenViewController.h */,
+				19C0598118B097AA00E8FAA8 /* sbOpenViewController.m */,
+			);
+			name = "Open View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -452,6 +465,7 @@
 				19008E6A18B0275100050939 /* FriendsViewController.m in Sources */,
 				197998AE18AF02E500BAB13B /* sbMainViewController.m in Sources */,
 				1983E48E18AFE210006F5FB5 /* sbCreateViewController.m in Sources */,
+				19C0598218B097AA00E8FAA8 /* sbOpenViewController.m in Sources */,
 				1983E47818AFCC36006F5FB5 /* sbTaskCell.m in Sources */,
 				1906CFA518AF015000A52A4E /* sbAppDelegate.m in Sources */,
 				19008E6D18B028AC00050939 /* FriendCell.m in Sources */,

@@ -10,12 +10,14 @@
 #import "sbAppDelegate.h"
 #import "sbTaskCell.h"
 #import "FriendCell.h"
+#import "sbOpenViewController.h"
 #import <Parse/Parse.h>
 
 @interface sbMainViewController : PFQueryTableViewController <UITableViewDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate, UITextFieldDelegate, UIAlertViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITabBar *tabBar;
 @property (weak, nonatomic) sbAppDelegate *appDelegate;
+@property PFObject *selectedTask;
 @property PFLogInViewController *logIn;
 
 - (BOOL)signUpViewController:(PFSignUpViewController *)signUpController shouldBeginSignUp:(NSDictionary *)info;

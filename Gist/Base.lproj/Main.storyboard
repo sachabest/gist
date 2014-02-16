@@ -60,6 +60,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="5kD-WZ-rSW" kind="push" identifier="open" id="g0b-w0-phb"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NE6-Fb-qbS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -222,6 +225,42 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IDY-nH-kKr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="881" y="64"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="cbm-vH-d87">
+            <objects>
+                <tableViewController id="5kD-WZ-rSW" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="eeG-x2-oqd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="yvv-Ld-pzk">
+                                <rect key="frame" x="0.0" y="119" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yvv-Ld-pzk" id="wzU-z9-lpM">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="5kD-WZ-rSW" id="rhf-Me-kZH"/>
+                            <outlet property="delegate" destination="5kD-WZ-rSW" id="peL-lm-VNs"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="oR1-th-elT">
+                        <barButtonItem key="leftBarButtonItem" image="Cancel" id="ZFc-c5-Unt">
+                            <color key="tintColor" cyan="0.80000000000000004" magenta="0.20000000000000001" yellow="0.45000000000000001" black="0.050000000000000003" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                            <connections>
+                                <action selector="goBack:" destination="d5p-Cj-gvP" id="Ggz-vB-mhQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rwi-F9-72c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="878" y="732"/>
         </scene>
         <!--Friends View Controller - Contacts-->
         <scene sceneID="5rZ-kR-X3k">

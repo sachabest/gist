@@ -10,4 +10,6 @@
 
 @interface sbTaskCell : PFTableViewCell
 
+@property PFObject *task;
+
 @end
