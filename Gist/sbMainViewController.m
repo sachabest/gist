@@ -24,6 +24,8 @@
         _thisWeek = [[UIColor alloc] initWithRed:67 green:170 blue:164 alpha:1];
         _nextWeek = [[UIColor alloc] initWithRed:137 green:203 blue:192 alpha:1];
         _later = [[UIColor alloc] initWithRed:233 green:228 blue:227 alpha:1];
+        [self.dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+        [self.dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
         // The className to query on
         self.parseClassName = @"Inbox";
         
@@ -137,8 +139,9 @@
     // Configure the cell to show todo item with a priority at the bottom
     [cell addTask:object];
     cell.textLabel.text = object[@"title"];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Priority: %@",
-                                 object[@"priority"]];
+    NSString *date = [_dateFormatter stringFromDate: (object[@"deadline"])];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Deadline: %@",
+                                 date];
     
     return cell;
 }
@@ -265,6 +268,7 @@
     if (hours < 2) {
         backgroundView.backgroundColor = _urgent;
     }
+    
     backgroundView.opaque = YES;
     [cell setBackgroundView:backgroundView];
 }
