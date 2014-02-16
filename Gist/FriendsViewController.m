@@ -63,7 +63,7 @@
     _loading.hidesWhenStopped = YES;
     _loading.frame = CGRectMake(10.0, 0.0, 40.0, 40.0);
     _loading.center = super.view.center;
-        UISwipeGestureRecognizer* goBack = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(goBack:)];
+    UISwipeGestureRecognizer* goBack = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(goBack:)];
     goBack.direction = UISwipeGestureRecognizerDirectionRight;
     [self.view addGestureRecognizer:goBack];
 }
@@ -165,12 +165,6 @@
     NSDictionary *friend = [_contactsWithPhone objectAtIndex:indexPath.row];
     [cell setFirstName:[friend objectForKey:@"firstName"] lastName:[friend objectForKey:@"lastName"]];
     [cell setPhoneNumber:[friend objectForKey:@"phoneNumber"]];
-    PFQuery *search = [[PFQuery alloc] initWithClassName:@"User"];
-    [search whereKey:@"phoneNumber" equalTo:[friend objectForKey:@"phoneNumber"]];
-    NSArray *results = [search findObjects];
-    if (results.count > 0) {
-        [cell setOnParse:results[0]];
-    }
     return cell;
 }
 
@@ -231,6 +225,15 @@
 }
 - (NSMutableArray *)sendSelection {
     NSArray *selected = [self.tableView indexPathsForSelectedRows];
+    PFQuery *search = [[PFQuery alloc] initWithClassName:@"User"];
+    for (NSIndexPath *path in selected) {
+        FriendCell *cell = (FriendCell *) [self.tableView cellForRowAtIndexPath:path];
+        [search whereKey:@"additional" equalTo:cell.phoneNumber];
+        NSArray *results = [search findObjects];
+        if (results.count > 0) {
+            [cell setOnParse:results[0]];
+        }
+    }
     NSMutableArray *transposed = [[NSMutableArray alloc] init];
     for (NSIndexPath *path in selected) {
         NSDictionary *temp =  [_contactsWithPhone objectAtIndex:path.row];

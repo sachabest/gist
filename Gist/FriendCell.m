@@ -62,6 +62,8 @@
             [scanner setScanLocation:([scanner scanLocation] + 1)];
         }
     }
+    if ([strippedString characterAtIndex:0] == '1')
+        strippedString = [strippedString substringFromIndex:1];
     return strippedString;
 }
 - (void)setPhoneNumber:(NSString *)number {

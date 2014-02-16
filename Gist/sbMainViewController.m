@@ -86,9 +86,12 @@
                                  | PFLogInFieldsSignUpButton;
         _logIn.facebookPermissions = @[@"friends_about_me"];
         _logIn.delegate = self;
-        _logIn.signUpController.view = [[PFSignUpView alloc] initWithFields:PFSignUpFieldsUsernameAndPassword | PFSignUpFieldsAdditional | PFSignUpFieldsSignUpButton];
-        [_logIn.signUpController setDelegate:self];
+        PFSignUpViewController *signUp = [[PFSignUpViewController alloc] init];
+        signUp.delegate = self;
+        signUp.fields = PFSignUpFieldsUsernameAndPassword | PFSignUpFieldsAdditional | PFSignUpFieldsSignUpButton;
+        [_logIn setSignUpController:signUp];
         ((PFSignUpView *)_logIn.signUpController.view).additionalField.placeholder = @"Phone";
+       // [((PFSignUpView *)_logIn.signUpController.view).signUpButton addTarget:self action:@selector(signUpViewController:shouldBeginSignUp:) forControlEvents:UIControlEventTouchUpInside];
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                        initWithTarget:self
                                        action:@selector(dismissKeyboard)];
@@ -154,11 +157,10 @@
             informationComplete = NO;
             break;
         }
-        if ([((NSString *)key) isEqualToString:@"additional"]) {
-            [info setValue:[FriendCell trimNumber:info[key]] forKey:key];
-        }
     }
-    
+    if ([info objectForKey:@"additional"]) {
+        [info setValue:[FriendCell trimNumber:info[@"additional"]] forKey:@"additional"];
+    }
     // Display an alert if a field wasn't completed
     if (!informationComplete) {
         [[[UIAlertView alloc] initWithTitle:@"Missing Information"
