@@ -38,9 +38,12 @@ static NSString *kAsigneeCell = @"assigneeCell";// the cell that holds assignees
 
 @property NSString *titleInput;
 @property NSString *infoInput;
+@property NSDate *due;
 
 @property UITextField *titleField;
 @property UITextField *infoField;
+@property UITextField *dateInput;
+
 @property (assign) NSInteger pickerCellRowHeight;
 @property (nonatomic, strong) IBOutlet UINavigationItem *nav;
 @property (nonatomic, strong) UIDatePicker *pickerView;
@@ -49,8 +52,6 @@ static NSString *kAsigneeCell = @"assigneeCell";// the cell that holds assignees
 - (IBAction)goBack:(id)sender;
 - (IBAction)sendTask:(id)sender;
 - (void)callbackWithResult:(NSNumber *)result error:(NSError *)error;
-- (UITableViewCell *)createTextEntryCell;
-- (UITableViewCell *)create;
 - (void)setAssignessAndUpdate:(NSArray *)assignees;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
 @end

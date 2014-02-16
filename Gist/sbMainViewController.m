@@ -18,6 +18,12 @@
 - (id)initWithCoder:(NSCoder *)aCoder {
     self = [super initWithCoder:aCoder];
     if (self) {
+        _urgent = [[UIColor alloc] initWithRed:228 green:82 blue:52 alpha:1];
+        _today = [[UIColor alloc] initWithRed:15 green:145 blue:143 alpha:1];
+        _tomorrow = [[UIColor alloc] initWithRed:0 green:159 blue:153 alpha:1];
+        _thisWeek = [[UIColor alloc] initWithRed:67 green:170 blue:164 alpha:1];
+        _nextWeek = [[UIColor alloc] initWithRed:137 green:203 blue:192 alpha:1];
+        _later = [[UIColor alloc] initWithRed:233 green:228 blue:227 alpha:1];
         // The className to query on
         self.parseClassName = @"Inbox";
         
@@ -127,14 +133,41 @@
         cell = [[sbTaskCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                       reuseIdentifier:cellIdentifier];
     }
+    
     // Configure the cell to show todo item with a priority at the bottom
-    cell.task = object;
-    cell.textLabel.text = object[@"name"];
+    [cell addTask:object];
+    int time = [((NSDate *) object[@"deadline"]) timeIntervalSinceNow];
+    int hours = time / 60 / 60;
+    cell.contentView.backgroundColor = _later;
+    cell.backgroundColor = _later;
+    if (hours < 336) {
+        cell.backgroundColor = _nextWeek;
+        cell.contentView.backgroundColor = _nextWeek;
+    }
+    if (hours < 168) {
+        cell.backgroundColor = _thisWeek;
+        cell.contentView.backgroundColor = _thisWeek;
+    }
+    if (hours < 48) {
+        cell.backgroundColor = _tomorrow;
+        cell.contentView.backgroundColor = _tomorrow;
+    }
+    if (hours < 24) {
+        cell.backgroundColor = _today;
+        cell.contentView.backgroundColor = _today;
+    }
+    if (hours < 2) {
+        cell.backgroundColor = _urgent;
+        cell.contentView.backgroundColor = _urgent;
+    }
+    cell.textLabel.text = object[@"title"];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Priority: %@",
                                  object[@"priority"]];
     
     return cell;
 }
+
+
 #pragma mark - Parse Login and Signup Delegate Methods
 
 // Sent to the delegate to determine whether the log in request should be submitted to the server.

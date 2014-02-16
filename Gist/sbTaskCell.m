@@ -10,11 +10,14 @@
 
 @implementation sbTaskCell
 
+
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        
     }
     return self;
 }
@@ -33,6 +36,9 @@
     [imageLayer setCornerRadius:20];
     [imageLayer setBorderWidth:1];
     [imageLayer setMasksToBounds:YES];
+}
+- (void)addTask:(PFObject *)task {
+    _task = task;
 }
 /*
 // Only override drawRect: if you perform custom drawing.

@@ -13,6 +13,7 @@
 
 @property PFObject *task;
 @property NSArray *assignees;
+@property NSDateFormatter *dateFormatter;
 
 - (IBAction)goBack:(id)sender;
 

@@ -11,4 +11,7 @@
 @interface sbTaskCell : PFTableViewCell
 
 @property PFObject *task;
+
+- (void)addTask:(PFObject *)task;
+
 @end

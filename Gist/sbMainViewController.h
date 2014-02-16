@@ -20,6 +20,13 @@
 @property PFObject *selectedTask;
 @property PFLogInViewController *logIn;
 
+@property UIColor *urgent;
+@property UIColor *today;
+@property UIColor *tomorrow;
+@property UIColor *thisWeek;
+@property UIColor *nextWeek;
+@property UIColor *later;
+
 - (BOOL)signUpViewController:(PFSignUpViewController *)signUpController shouldBeginSignUp:(NSDictionary *)info;
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user;
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didFailToSignUpWithError:(NSError *)error;

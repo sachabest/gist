@@ -27,6 +27,10 @@
 {
     [super viewDidLoad];
     _assignees = _task[@"possibleAssignees"];
+    self.dateFormatter = [[NSDateFormatter alloc] init];
+    [self.dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    [self.dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
+    self.tableView.allowsSelection = false;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -91,6 +95,7 @@
         }
         case 3: {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"DeadlineCell"];
+            cell.textLabel.text = [_dateFormatter stringFromDate:_task[@"deadline"]];
             break;
         }
     }
