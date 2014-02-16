@@ -251,7 +251,7 @@
     sbTaskCell *casted = (sbTaskCell *)cell;
     int time = [((NSDate *) casted.task[@"deadline"]) timeIntervalSinceNow];
     int hours = time / 60 / 60;
-    UIView *backgroundView = [[UIView alloc] init];
+    UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Color"]];
     backgroundView.backgroundColor = _later;
     if (hours < 336) {
         backgroundView.backgroundColor = _nextWeek;
