@@ -62,6 +62,7 @@
 		8BF1727918B093B8005211CC /* 60pt_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF1727318B093B8005211CC /* 60pt_logo.png */; };
 		8BF1727A18B093B8005211CC /* 80pt_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF1727418B093B8005211CC /* 80pt_logo.png */; };
 		8BF1727B18B093B8005211CC /* 120pt_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF1727518B093B8005211CC /* 120pt_logo.png */; };
+		8BF5F25A18B0C36100836F9D /* Color-02.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF5F25918B0C36100836F9D /* Color-02.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +142,7 @@
 		8BF1727318B093B8005211CC /* 60pt_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 60pt_logo.png; sourceTree = "<group>"; };
 		8BF1727418B093B8005211CC /* 80pt_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 80pt_logo.png; sourceTree = "<group>"; };
 		8BF1727518B093B8005211CC /* 120pt_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 120pt_logo.png; sourceTree = "<group>"; };
+		8BF5F25918B0C36100836F9D /* Color-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Color-02.png"; path = "../../Color-02.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +266,7 @@
 		197998B518AF042500BAB13B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				8BF5F25918B0C36100836F9D /* Color-02.png */,
 				8BF1727018B093B8005211CC /* 29pt_logo.png */,
 				8BF1727118B093B8005211CC /* 40pt_logo.png */,
 				8BF1727218B093B8005211CC /* 58pt_logo.png */,
@@ -419,6 +422,7 @@
 				8BF1727718B093B8005211CC /* 40pt_logo.png in Resources */,
 				8BB4DC1B18B06EE70067DF3C /* contacts.png in Resources */,
 				8BF1727618B093B8005211CC /* 29pt_logo.png in Resources */,
+				8BF5F25A18B0C36100836F9D /* Color-02.png in Resources */,
 				8BB4DC0718B061570067DF3C /* login_button.png in Resources */,
 				1906CFB018AF015000A52A4E /* Images.xcassets in Resources */,
 				8BB4DC1318B06ECA0067DF3C /* menu_small.png in Resources */,
