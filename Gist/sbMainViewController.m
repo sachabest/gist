@@ -77,13 +77,18 @@
     _appDelegate = (sbAppDelegate *) [[UIApplication sharedApplication] delegate];
     if (currentUser) {
         _appDelegate.parseData = [[GistParseStorage alloc] init];
-    } else {
+    }
+    else {
         PFLogInViewController *logInController = [[PFLogInViewController alloc] init];
         logInController.fields = PFLogInFieldsUsernameAndPassword
                                  | PFLogInFieldsFacebook
                                  | PFLogInFieldsSignUpButton;
         logInController.facebookPermissions = @[@"friends_about_me"];
         logInController.delegate = self;
+        UITextField *phone = [[UITextField alloc] init];
+        phone.placeholder = @"xxx-xxx-xxxx";
+        PFSignUpView *signUp = logInController.signUpController.view;
+        logInController.signUpController.view = [[PFSignUpView alloc] initWithFields:PFSignUpFieldsUsernameAndPassword | PFSignUpFieldsAdditional | PFSignUpFieldsSignUpButton];
         [self presentModalViewController:logInController animated:YES];
     }
 }

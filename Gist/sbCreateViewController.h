@@ -35,12 +35,18 @@ static NSString *kAsigneeCell = @"assigneeCell";// the cell that holds assignees
 // keep track which indexPath points to the cell with UIDatePicker
 @property (nonatomic, strong) NSIndexPath *datePickerIndexPath;
 
+@property NSString *titleInput;
+@property NSString *infoInput;
+
 @property (assign) NSInteger pickerCellRowHeight;
-@property (nonatomic, strong) IBOutlet UIButton *doneButton;
 @property (nonatomic, strong) IBOutlet UINavigationItem *nav;
 @property (nonatomic, strong) UIDatePicker *pickerView;
+@property NSArray *assignees;
 
 
+- (void)sendTask;
+- (IBAction)showConfirm:(id)sender;
 - (UITableViewCell *)createTextEntryCell;
 - (UITableViewCell *)create;
+- (void)setAssignessAndUpdate:(NSArray *)assignees;
 @end

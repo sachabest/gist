@@ -353,7 +353,7 @@
         [UIView animateWithDuration:kPickerAnimationDuration animations: ^{ self.pickerView.frame = endFrame; }
                          completion:^(BOOL finished) {
                              // add the "Done" button to the nav bar
-                             self.navigationItem.rightBarButtonItem = self.doneButton;
+                            // self.navigationItem.rightBarButtonItem = self.doneButton;
                          }];
     }
 }
@@ -403,6 +403,31 @@
     // update the cell's date string
     cell.detailTextLabel.text = [self.dateFormatter stringFromDate:targetedDatePicker.date];
 }
-
-
+- (void)setAssignessAndUpdate:(NSArray *)assignees {
+    _assignees = assignees;
+    UITableViewCell *assigneeCell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]];
+    NSString *temp = [NSString stringWithFormat:@"%d", _assignees.count];
+    for (PFObject *assignee in _assignees) {
+        [temp stringByAppendingString:assignee[@"firstName"]];
+        [temp stringByAppendingString:@", "];
+    }
+    temp = [temp substringToIndex:temp.length - 2];
+    assigneeCell.textLabel.text = temp;
+}
+- (void)sendTask {
+    PFObject *task = [[PFObject alloc] initWithClassName:@"Inbox"];
+    task[@"creator"] = [PFUser currentUser];
+    UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"IncompleteInput" message:@"Please make sure to fill in all fields" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    if (!_assignees || _title) {
+        [error show];
+    }
+    task[@"possibleAssignees"] = _assignees;
+    task[@"title"] = _titleInput;
+    task[@"info"] = _infoInput;
+    [task saveInBackgroundWithTarget:self selector:@selector(showConfirm)];
+}
+-(IBAction)showConfirm:(id)sender {
+    UIAlertView *confirm = [[UIAlertView alloc] initWithTitle:@"Task Sent" message:@"Your task has been delivered!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [confirm show];
+}
 @end

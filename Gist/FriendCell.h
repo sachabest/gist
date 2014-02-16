@@ -15,6 +15,7 @@
 @property NSString *firstName;
 @property NSString *lastName;
 @property NSString *phoneNumber;
+@property PFObject *user;
 @property bool onParse;
 
 @property UILabel *name;
@@ -22,6 +23,6 @@
 
 + (NSString *)trimNumber:(NSString *)mobile;
 - (void)setFirstName:(NSString *)first lastName:(NSString *)last;
-- (void)setOnParse;
+- (void)setOnParse:(PFObject *)user;
 - (void)setPhoneNumber:(NSString *)number;
 @end

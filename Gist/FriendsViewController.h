@@ -10,6 +10,7 @@
 #import "sbAppDelegate.h"
 #import <AddressBook/AddressBook.h>
 #import "FriendCell.h"
+#import "sbCreateViewController.h"
 
 @interface FriendsViewController : UITableViewController
 
@@ -17,6 +18,9 @@
 @property NSMutableArray *contactsWithPhone;
 @property UIActivityIndicatorView *loading;
 
+@property NSArray *selection;
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (IBAction)send:(id)sender;
 
 @end

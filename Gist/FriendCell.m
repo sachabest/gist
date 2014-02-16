@@ -68,8 +68,9 @@
     _phoneNumber = number;
     _number.text = number;
 }
-- (void)seOonParse {
+- (void)setOnParse:(PFObject *)user {
     _onParse = true;
+    _user = user;
     self.accessoryType = UITableViewCellAccessoryCheckmark;
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

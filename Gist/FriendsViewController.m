@@ -165,8 +165,11 @@
     NSDictionary *friend = [_contactsWithPhone objectAtIndex:indexPath.row];
     [cell setFirstName:[friend objectForKey:@"firstName"] lastName:[friend objectForKey:@"lastName"]];
     [cell setPhoneNumber:[friend objectForKey:@"phoneNumber"]];
-    if ([_friends containsObject:[friend objectForKey:@"phoneNumber"]]) {
-        [cell setOnParse];
+    PFQuery *search = [[PFQuery alloc] initWithClassName:@"User"];
+    [search whereKey:@"phoneNumber" equalTo:[friend objectForKey:@"phoneNumber"]];
+    NSArray *results = [search findObjects];
+    if (results.count > 0) {
+        [cell setOnParse:results[0]];
     }
     return cell;
 }
@@ -217,9 +220,18 @@
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
     //
 }
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    
+- (IBAction)send:(id)sender {
+    _selection = [self sendSelection];
+    ((sbCreateViewController *)self.parentViewController).assignees = _selection;
+}
+- (NSMutableArray *)sendSelection {
+    NSArray *selected = [self.tableView indexPathsForSelectedRows];
+    NSMutableArray *transposed = [[NSMutableArray alloc] init];
+    for (NSIndexPath *path in selected) {
+        NSDictionary *temp =  [_contactsWithPhone objectAtIndex:path.row];
+        
+    }
+    return transposed;
 }
 
 @end
