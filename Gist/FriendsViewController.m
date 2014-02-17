@@ -225,9 +225,9 @@
 }
 - (NSMutableArray *)sendSelection {
     NSArray *selected = [self.tableView indexPathsForSelectedRows];
-    PFQuery *search = [PFUser query];
     NSMutableArray *transposed = [[NSMutableArray alloc] init];
     for (NSIndexPath *path in selected) {
+        PFQuery *search = [PFUser query];
         FriendCell *cell = (FriendCell *) [self.tableView cellForRowAtIndexPath:path];
         [search whereKey:@"additional" hasPrefix:cell.phoneNumber];
         PFUser *result = [search getFirstObject];

@@ -21,12 +21,6 @@
 @property PFLogInViewController *logIn;
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
 
-@property UIColor *urgent;
-@property UIColor *today;
-@property UIColor *tomorrow;
-@property UIColor *thisWeek;
-@property UIColor *nextWeek;
-@property UIColor *later;
 
 - (BOOL)signUpViewController:(PFSignUpViewController *)signUpController shouldBeginSignUp:(NSDictionary *)info;
 - (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user;

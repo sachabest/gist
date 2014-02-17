@@ -18,12 +18,6 @@
 - (id)initWithCoder:(NSCoder *)aCoder {
     self = [super initWithCoder:aCoder];
     if (self) {
-        _urgent = [[UIColor alloc] initWithRed:228 green:82 blue:52 alpha:1];
-        _today = [[UIColor alloc] initWithRed:15 green:145 blue:143 alpha:1];
-        _tomorrow = [[UIColor alloc] initWithRed:0 green:159 blue:153 alpha:1];
-        _thisWeek = [[UIColor alloc] initWithRed:67 green:170 blue:164 alpha:1];
-        _nextWeek = [[UIColor alloc] initWithRed:137 green:203 blue:192 alpha:1];
-        _later = [[UIColor alloc] initWithRed:233 green:228 blue:227 alpha:1];
         [self.dateFormatter setDateStyle:NSDateFormatterMediumStyle];
         [self.dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
         // The className to query on
@@ -43,6 +37,7 @@
         
         // The number of objects to show per page
         self.objectsPerPage = 25;
+
     }
     return self;
 }
@@ -86,6 +81,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.tableView.rowHeight = 70;
+    self.tableView.separatorColor = [UIColor clearColor];
     PFUser *currentUser = [PFUser currentUser];
     _appDelegate = (sbAppDelegate *) [[UIApplication sharedApplication] delegate];
     if (currentUser) {
@@ -139,9 +135,15 @@
     // Configure the cell to show todo item with a priority at the bottom
     [cell addTask:object];
     cell.textLabel.text = object[@"title"];
-    NSString *date = [_dateFormatter stringFromDate: (object[@"deadline"])];
+    cell.textLabel.textColor = [UIColor whiteColor];
+    NSString *date = [_dateFormatter stringFromDate: ([object objectForKey:@"deadline"])];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Deadline: %@",
                                  date];
+    CGRect frame = cell.detailTextLabel.frame;
+    frame.size.width = 200;
+    cell.detailTextLabel.frame = frame;
+    NSLog(@"%@", cell.detailTextLabel.text);
+    cell.detailTextLabel.textColor = [UIColor whiteColor];
     
     return cell;
 }
@@ -251,22 +253,21 @@
     sbTaskCell *casted = (sbTaskCell *)cell;
     int time = [((NSDate *) casted.task[@"deadline"]) timeIntervalSinceNow];
     int hours = time / 60 / 60;
-    UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Color"]];
-    backgroundView.backgroundColor = _later;
+    UIImageView *backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"later.png"]];
     if (hours < 336) {
-        backgroundView.backgroundColor = _nextWeek;
+       backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nextWeek.png"]];
     }
     if (hours < 168) {
-        backgroundView.backgroundColor = _thisWeek;
+        backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"thisWeek.png"]];
     }
     if (hours < 48) {
-        backgroundView.backgroundColor = _tomorrow;
+        backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tomorrow.png"]];
     }
     if (hours < 24) {
-        backgroundView.backgroundColor = _today;
+        backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"today.png"]];
     }
     if (hours < 2) {
-        backgroundView.backgroundColor = _urgent;
+        backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"urgent.png"]];
     }
     
     backgroundView.opaque = YES;
@@ -286,6 +287,7 @@
      if ([segue.identifier isEqualToString:@"open"]) {
          sbOpenViewController *ovc = (sbOpenViewController *) segue.destinationViewController;
          ovc.task = _selectedTask;
+         
      }
  }
  
