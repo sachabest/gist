@@ -22,6 +22,9 @@
 		1906CFB918AF015000A52A4E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1906CF9818AF015000A52A4E /* UIKit.framework */; };
 		1906CFC118AF015000A52A4E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1906CFBF18AF015000A52A4E /* InfoPlist.strings */; };
 		1906CFC318AF015000A52A4E /* GistTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1906CFC218AF015000A52A4E /* GistTests.m */; };
+		19126E6918B306C400EDA3D2 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19126E6318B306C400EDA3D2 /* libTestFlight.a */; };
+		19126E6A18B306C400EDA3D2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 19126E6418B306C400EDA3D2 /* README.md */; };
+		19126E6B18B306C400EDA3D2 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 19126E6518B306C400EDA3D2 /* release_notes.md */; };
 		197998AE18AF02E500BAB13B /* sbMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 197998AD18AF02E500BAB13B /* sbMainViewController.m */; };
 		197998C918AF04F200BAB13B /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 197998C818AF04F200BAB13B /* Parse.framework */; };
 		197998D118AF0A6700BAB13B /* GistParseStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 197998D018AF0A6700BAB13B /* GistParseStorage.m */; };
@@ -102,6 +105,12 @@
 		1906CFBE18AF015000A52A4E /* GistTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GistTests-Info.plist"; sourceTree = "<group>"; };
 		1906CFC018AF015000A52A4E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1906CFC218AF015000A52A4E /* GistTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GistTests.m; sourceTree = "<group>"; };
+		19126E6318B306C400EDA3D2 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		19126E6418B306C400EDA3D2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		19126E6518B306C400EDA3D2 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
+		19126E6618B306C400EDA3D2 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		19126E6718B306C400EDA3D2 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		19126E6818B306C400EDA3D2 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		197998AC18AF02E500BAB13B /* sbMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sbMainViewController.h; sourceTree = "<group>"; };
 		197998AD18AF02E500BAB13B /* sbMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sbMainViewController.m; sourceTree = "<group>"; };
 		197998C818AF04F200BAB13B /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -161,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1983E48A18AFD00E006F5FB5 /* SystemConfiguration.framework in Frameworks */,
+				19126E6918B306C400EDA3D2 /* libTestFlight.a in Frameworks */,
 				1983E48818AFD007006F5FB5 /* StoreKit.framework in Frameworks */,
 				1983E48618AFD001006F5FB5 /* Security.framework in Frameworks */,
 				1983E48418AFCFF8006F5FB5 /* MobileCoreServices.framework in Frameworks */,
@@ -192,6 +202,7 @@
 		1906CF8818AF015000A52A4E = {
 			isa = PBXGroup;
 			children = (
+				19126E6218B306C400EDA3D2 /* TestFlightSDK2.2.1 */,
 				197998B518AF042500BAB13B /* Images */,
 				1906CF9A18AF015000A52A4E /* Gist */,
 				1906CFBC18AF015000A52A4E /* GistTests */,
@@ -271,6 +282,19 @@
 				1906CFBF18AF015000A52A4E /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		19126E6218B306C400EDA3D2 /* TestFlightSDK2.2.1 */ = {
+			isa = PBXGroup;
+			children = (
+				19126E6318B306C400EDA3D2 /* libTestFlight.a */,
+				19126E6418B306C400EDA3D2 /* README.md */,
+				19126E6518B306C400EDA3D2 /* release_notes.md */,
+				19126E6618B306C400EDA3D2 /* TestFlight+AsyncLogging.h */,
+				19126E6718B306C400EDA3D2 /* TestFlight+ManualSessions.h */,
+				19126E6818B306C400EDA3D2 /* TestFlight.h */,
+			);
+			path = TestFlightSDK2.2.1;
 			sourceTree = "<group>";
 		};
 		197998B518AF042500BAB13B /* Images */ = {
@@ -403,6 +427,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Sacha Best";
 				TargetAttributes = {
+					1906CF9018AF015000A52A4E = {
+						DevelopmentTeam = Q4N479MPW3;
+					};
 					1906CFB418AF015000A52A4E = {
 						TestTargetID = 1906CF9018AF015000A52A4E;
 					};
@@ -432,6 +459,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19126E6B18B306C400EDA3D2 /* release_notes.md in Resources */,
 				8BF1727B18B093B8005211CC /* 120pt_logo.png in Resources */,
 				8BF1727A18B093B8005211CC /* 80pt_logo.png in Resources */,
 				8BF1727718B093B8005211CC /* 40pt_logo.png in Resources */,
@@ -449,6 +477,7 @@
 				8BB4DC1418B06ECA0067DF3C /* contacts_small.png in Resources */,
 				1906CF9F18AF015000A52A4E /* InfoPlist.strings in Resources */,
 				8BB4DC1E18B06EE70067DF3C /* new.png in Resources */,
+				19126E6A18B306C400EDA3D2 /* README.md in Resources */,
 				19C0598F18B0C83C00E8FAA8 /* tomorrow.png in Resources */,
 				19C0598C18B0C83C00E8FAA8 /* later.png in Resources */,
 				8BB4DC1018B06ECA0067DF3C /* profile_small.png in Resources */,
@@ -619,6 +648,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchBg;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Volumes/sachabest/Documents/Gist,
@@ -626,6 +656,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Gist/Gist-Prefix.pch";
 				INFOPLIST_FILE = "Gist/Gist-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Volumes/sachabest/Documents/gist/TestFlightSDK2.2.1,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -636,6 +670,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchBg;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Volumes/sachabest/Documents/Gist,
@@ -643,6 +678,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Gist/Gist-Prefix.pch";
 				INFOPLIST_FILE = "Gist/Gist-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Volumes/sachabest/Documents/gist/TestFlightSDK2.2.1,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
